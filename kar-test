@@ -1,0 +1,153 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 14, 2022 at 01:32 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `kar-test`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `account_number` int(11) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `account_balance` double(11,2) NOT NULL,
+  `account_type` varchar(25) NOT NULL,
+  `last_transaction_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `account_status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`account_number`, `user_name`, `account_balance`, `account_type`, `last_transaction_date`, `account_status`) VALUES
+(1, 'maneesh', 1000.00, 'Corporate', '2022-12-14 17:59:54', 1),
+(2, 'naresh', 1000.00, 'Individual', '2022-12-14 18:01:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banks`
+--
+
+CREATE TABLE `banks` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `banks`
+--
+
+INSERT INTO `banks` (`id`, `name`) VALUES
+(1, 'LTIMindtree');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaction_logs`
+--
+
+CREATE TABLE `transaction_logs` (
+  `trans_id` int(11) NOT NULL,
+  `account_number` int(11) NOT NULL,
+  `trans_amount` double(11,2) NOT NULL DEFAULT 0.00,
+  `transaction_type` varchar(20) NOT NULL,
+  `transaction_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `trans_status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT 1 COMMENT '1=active,0=inactive',
+  `created_on` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`account_number`);
+
+--
+-- Indexes for table `banks`
+--
+ALTER TABLE `banks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `transaction_logs`
+--
+ALTER TABLE `transaction_logs`
+  ADD PRIMARY KEY (`trans_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `account_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `banks`
+--
+ALTER TABLE `banks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transaction_logs`
+--
+ALTER TABLE `transaction_logs`
+  MODIFY `trans_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
