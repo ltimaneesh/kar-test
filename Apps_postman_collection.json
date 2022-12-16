@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "45cda8b5-2b6f-4a3f-be5e-2bfadee93933",
+		"name": "Kar-Global Apis",
+		"description": "This is code challange as given by KAR- Global",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24847175"
+	},
+	"item": [
+		{
+			"name": "Get bank Name",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "List the accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**It will list all the active accounts**\n\nURL: [http://localhost/kar-test/index.php/account](http://localhost/kar-test/index.php/account)\n\nMETHOD - GET\n\nINPUT REQUEST- Nothing\n\nOUTPUT-  \n{\"status\":\"success\",\"data\":\\[{\"account_number\":\"1\"},{\"account_number\":\"2\"},{\"account_number\":\"3\"}\\]}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Details to specific account number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**it will show the account details**\n\nURL: [http://localhost/kar-test/index.php/account/1](http://localhost/kar-test/index.php/account/1)  \nMETHOD - GET  \nINPUT REQUEST- Passed account number in url like 1/2/3 etc  \nOUTPUT- {\"status\":\"success\",\"data\":{\"user_name\":\"maneesh\",\"account_balance\":\"3340.00\"}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Check Account type to specific account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**It will show the account details with account type**\n\nURL: [http://localhost/kar-test/index.php/account/checking/1](http://localhost/kar-test/index.php/account/checking/1)  \nMETHOD - GET  \nINPUT REQUEST- Passed account number in url like 1/2/3 etc  \nOUTPUT- {\"status\":\"success\",\"data\":{\"user_name\":\"maneesh\",\"account_type\":\"Individual\"}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**This will create new account**\n\nURL: [http://localhost/kar-test/index.php/account/create](http://localhost/kar-test/index.php/account/create)  \nMETHOD - POST  \nINPUT REQUEST-  \nuser_name=maneesh  \naccount_type=Individual  \nOUTPUT- {\"status\":\"success\",\"msg\":\"New account created successfully.\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "Modify existing account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**This is used to modify the existing account details**\n\nURL: [http://localhost/kar-test/index.php/account/modify](http://localhost/kar-test/index.php/account/modify)  \nMETHOD - POST  \nINPUT REQUEST-  \nuser_name=maneesh  \naccount_type=Individual  \naccount_number= 2  \nOUTPUT- {\"status\":\"success\",\"msg\":\"Account updated successfully.\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove an account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**This will remove the existing account**\n\nURL: [http://localhost/kar-test/index.php/account/remove](http://localhost/kar-test/index.php/account/remove)  \nMETHOD - POST  \nINPUT REQUEST- account_number=6  \nOUTPUT- {\"status\":\"success\",\"msg\":\" Removed successfully.\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit money to an account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**Deposit money to an account**\n\nURL: [http://localhost/kar-test/index.php/account/deposit](http://localhost/kar-test/index.php/account/deposit)  \nMETHOD - POST  \nINPUT REQUEST- to_account=6 , amount = 500  \nOUTPUT- {\"status\":\"success\",\"msg\":\" Amount 500 deposited successfully.\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "Withraw money from an account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**Withdraw money from an account**\n\nURL: [http://localhost/kar-test/index.php/account/withdrawal](http://localhost/kar-test/index.php/account/withdrawal)  \nMETHOD - POST  \nINPUT REQUEST- from_account=6 , amount = 500  \nOUTPUT- {\"status\":\"success\",\"msg\":\" 500 withdrawn successfully.\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer money to one account to other account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "**Transfer money from one account to others account**\n\nURL: [http://localhost/kar-test/index.php/account/transfer](http://localhost/kar-test/index.php/account/transfer)  \nMETHOD - POST  \nINPUT REQUEST- from_account=6 , to_account=5 ,amount = 500  \nOUTPUT- {\"status\":\"success\",\"msg\":\"Transferred successfully.\"}"
+			},
+			"response": []
+		}
+	]
+}
